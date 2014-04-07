@@ -1,4 +1,4 @@
-Si4707 Weather Band Radio Receiver
+Si4707 Weather Band Radio Receiver Library
 ==================================
 
 [![Si4707 Weather Band Radio Breakout](https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/1/2/9/11129-01_medium.jpg)  
@@ -16,15 +16,8 @@ Features:
 * Programmable reference clock
 * 2.7 to 5.5 V supply voltage
 
-Repository Contents
--------------------
-
-* **/hardware** - PCB design files (created with version 6.2.0 of Eagle)
-* **/firmware** - Arduino example sketch
-* [Wiki](https://github.com/sparkfun/Si4707_Breakout/wiki) - Be sure to check out the [hardware support](https://github.com/sparkfun/Si4707_Breakout/wiki/Si4707-Breakout-Hardware-Support) page for more information on using the Si4707 breakout board.
-
 License Information
 -------------------
 
-The hardware is released under [Creative Commons Share-alike 3.0](http://creativecommons.org/licenses/by-sa/3.0/).  
-All other code is open source hardware so please feel free to do anything you want with it; you buy me a beer if you use this and we meet someday ([Beerware license](http://en.wikipedia.org/wiki/Beerware)).
+#### Library License
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Si4707 Weather Band Radio Receiver Library</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/infomaniac50/Arduino-Si4707-Library" property="cc:attributionName" rel="cc:attributionURL">Derek Chafin</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/sparkfun/Si4707_Breakout" rel="dct:source">https://github.com/sparkfun/Si4707_Breakout</a>.
