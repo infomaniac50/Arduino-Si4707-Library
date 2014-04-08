@@ -147,6 +147,7 @@ void printMenu()
 {
   Serial.println();
   Serial.println(F("Si4707 Weather Band Example Code Menu"));
+  Serial.println(F("Weather Band: (162.4 - 162.55 MHz)"));
   Serial.println(F("====================================="));
   Serial.println(F("\t u) Fine tune up (+2.5kHz)"));
   Serial.println(F("\t d) Fine tune down (-2.5kHz)"));
