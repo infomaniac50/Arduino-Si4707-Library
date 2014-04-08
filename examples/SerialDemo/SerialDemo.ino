@@ -36,16 +36,10 @@
 #include <Wire.h>
 #include <Si4707.h>
 
-// Pin definitions:
-// (If desired, these pins can be moved to other digital pins)
-// SEN is optional, if not used, make sure SEN_ADDRESS is 1
 const int senPin = 5;
 const int rstPin = 4;
 
 Si4707 wb(rstPin, senPin);
-
-// Not defined, because they must be connected to A4 and A5,
-//  are SDIO and SCLK.
 
 // Put the WB frequency you'd like to tune to here:
 // The value should be in kHz, so 162475 equates to 162.475 MHz
@@ -170,5 +164,3 @@ void printMenu()
   Serial.println(F("\t h) Re-print this menu"));
   Serial.println();
 }
-
-

@@ -19,6 +19,8 @@ private:
   // SEN is optional, if not used, make sure SEN_ADDRESS is 1
   int senPin;
   int rstPin;
+  // Not defined, because they must be connected to A4 and A5,
+  //  are SDIO and SCLK.
 
   // These arrays will be used by most command functions to construct
   // the command string and receive response bytes.
