@@ -64,6 +64,10 @@ void setup()
   // Serial is used to interact with the menu, and to print debug info
   Serial.begin(9600);
 
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for Leonardo only
+  }
+
   if (!wb.begin())
     while(1);
 
