@@ -143,7 +143,9 @@ void loop()
     wb.setVolume(--rxVolume); // decrement volume
     break;
   case 'h':
+  default:
     printMenu(); // print the help menu
+    break;
   }
 }
 
