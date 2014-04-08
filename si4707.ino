@@ -34,13 +34,15 @@
   serial monitor, have fun interacting with the options presented!
 */
 #include "si4707_system_functions.h"
-// #include <Wire.h>
+#include <Wire.h>
 
 // Pin definitions:
 // (If desired, these pins can be moved to other digital pins)
 // SEN is optional, if not used, make sure SEN_ADDRESS is 1
 const int senPin = 5;
 const int rstPin = 4;
+
+Si4707 wb(rstPin, senPin);
 
 // Not defined, because they must be connected to A4 and A5,
 //  are SDIO and SCLK.
@@ -62,26 +64,15 @@ void setup()
   // Serial is used to interact with the menu, and to print debug info
   Serial.begin(9600);
 
-  // First, initSi4707() must be called. The function returns the value
-  //  of the Part Number reported by the Si4707, which can be checked
-  //  to verify communication. It should always be 7.
-  byte partNumber = initSi4707();
-  if (partNumber == 7)
-    Serial.println("Successfully connected to Si4707");
-  else
-  {
-    Serial.print("Didn't connect to an Si4707...Error: ");
-    Serial.println(partNumber);
-    while(1)
-      ;
-  }
+  if (!wb.begin())
+    while(1);
 
   // After initializing, we can tune to a WB frequency. Use the
   //  setWBFrequency() function to tune to a frequency. The frequency
   //  parameter given to the function should be your chosen frequency in
   //  kHz. So to tune to 162.55 MHz, send 162550. The tuneFrequency
   //  variable is defined globablly near the top of this sketch.
-  if (setWBFrequency(tuneFrequency))
+  if (wb.setWBFrequency(tuneFrequency))
   {
     Serial.println(F("Tune Success!"));
   }
@@ -102,50 +93,50 @@ void loop()
   switch (c)
   {
   case 'u':
-    tuneWBFrequency(1);  // Tune up 1 increment (2.5kHz)
+    wb.tuneWBFrequency(1);  // Tune up 1 increment (2.5kHz)
     break;
   case 'd':
-    tuneWBFrequency(-1);  // Tune down 1 increment (2.5kHz)
+    wb.tuneWBFrequency(-1);  // Tune down 1 increment (2.5kHz)
     break;
   case 'U':
-    tuneWBFrequency(10);  // Tune up 10 increments (25kHz)
+    wb.tuneWBFrequency(10);  // Tune up 10 increments (25kHz)
     break;
   case 'D':
-    tuneWBFrequency(-10);  // Tune down 10 increments (25kHz)
+    wb.tuneWBFrequency(-10);  // Tune down 10 increments (25kHz)
     break;
   case 's':
-    printSAMEStatus();
+    wb.printSAMEStatus();
     break;
   case 'r':
     Serial.print("RSSI = ");
-    Serial.println(getRSSI());
+    Serial.println(wb.getRSSI());
     break;
   case 'S':
     Serial.print("SNR = ");
-    Serial.println(getSNR());
+    Serial.println(wb.getSNR());
     break;
   case 'o':
     Serial.print("Frequency offset = ");
-    Serial.println(getFreqOffset());
+    Serial.println(wb.getFreqOffset());
     break;
   case 'f':
     Serial.print("Frequency = ");
     // getWBFrequency() returns the 2-byte frequency code sent
     // to the Si4707. To get a real-looking freq, multiply by .0025
-    Serial.print((float) getWBFrequency() * 0.0025, 4);
+    Serial.print((float) wb.getWBFrequency() * 0.0025, 4);
     Serial.println(" MHz");
     break;
   case 'm':
-    setMuteVolume(1);  // Turn mute on
+    wb.setMuteVolume(1);  // Turn mute on
     break;
   case 'M':
-    setMuteVolume(0);  // Turn mute off
+    wb.setMuteVolume(0);  // Turn mute off
     break;
   case '+':
-    setVolume(++rxVolume); // increment volume
+    wb.setVolume(++rxVolume); // increment volume
     break;
   case '-':
-    setVolume(--rxVolume); // decrement volume
+    wb.setVolume(--rxVolume); // decrement volume
     break;
   case 'h':
     printMenu(); // print the help menu
@@ -173,4 +164,5 @@ void printMenu()
   Serial.println(F("\t h) Re-print this menu"));
   Serial.println();
 }
+
 
