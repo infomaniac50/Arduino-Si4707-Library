@@ -33,8 +33,8 @@
   global variable. After tuning a menu will be printed to the
   serial monitor, have fun interacting with the options presented!
 */
-#include "si4707_system_functions.h"
 #include <Wire.h>
+#include <Si4707.h>
 
 // Pin definitions:
 // (If desired, these pins can be moved to other digital pins)

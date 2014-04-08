@@ -1,6 +1,6 @@
 #include "si4707_definitions.h"
 
-#include "si4707_system_functions.h"
+#include "Si4707.h"
 #include <Wire.h>
 
 Si4707::Si4707(int _rstPin, int _senPin)
