@@ -1,0 +1,22 @@
+#######################################
+# Syntax Coloring Map For TOTP
+####################################### 
+# Datatypes (KEYWORD1)
+#######################################
+
+Si4707	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+setWBFrequency	KEYWORD2
+tuneWBFrequency	KEYWORD2
+getWBFrequency	KEYWORD2
+getRSSI	KEYWORD2
+getSNR	KEYWORD2
+getFreqOffset	KEYWORD2
+printSAMEStatus	KEYWORD2
+setMuteVolume	KEYWORD2
+setVolume	KEYWORD2
