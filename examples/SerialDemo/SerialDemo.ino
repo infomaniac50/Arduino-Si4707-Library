@@ -45,7 +45,7 @@ Si4707 wb(rstPin, senPin);
 // The value should be in kHz, so 162475 equates to 162.475 MHz
 // The sketch will attempt to tune to this frequency when it starts.
 // Find your frequency here: http://www.nws.noaa.gov/nwr/indexnw.htm
-unsigned long tuneFrequency = 162550; // 162.475 MHz
+unsigned long tuneFrequency = 162550; // 162.550 MHz
 
 // Initial volume level:
 int rxVolume = 63;  // Maximum loudness (should be between 0 and 63)
